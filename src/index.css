@@ -19,7 +19,7 @@ button {
 }
 
 #equals {
-  background-color: green;
+  background-color: rgb(59, 121, 255);
 }
 
 .calculator {
@@ -31,7 +31,17 @@ button {
 }
 
 .inputScreen {
-  min-height: 20px;
+  font-size: 40px;
+  font-family: digital;
+  color: white;
+  text-align: right;
+  line-height: 35px;
+  height: 5vh;
+  padding: 5px 0;
+}
+
+.outputScreen {
+  min-height: 3vh;
   font-family: digital;
   font-size: 20px;
   color: white;
@@ -40,14 +50,4 @@ button {
   line-height: 20px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-}
-
-.outputScreen {
-  font-size: 30px;
-  font-family: digital;
-  color: white;
-  font-weight: bold;
-  text-align: right;
-  line-height: 35px;
-  height: 7vh;
 }

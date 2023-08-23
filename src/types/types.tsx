@@ -4,7 +4,7 @@ export interface ScreenProps {
 }
 
 export interface ButtonProps {
-  handleButtonPress: (arg: any) => void;
+  handleButtonClick: (arg: any) => void;
 }
 
 export type Operations = {

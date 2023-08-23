@@ -1,0 +1,53 @@
+button {
+  position: relative;
+  height: 65px;
+  width: 80px;
+  color: white;
+  outline: 1px solid black;
+  /* border: none; */
+  background: #4d4d4d;
+  font-family: Share Tech Mono, monospace;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#equals {
+  background-color: green;
+}
+
+.calculator {
+  border: 2px grey #47476b;
+  padding: 5px;
+  background: black;
+  width: 320px;
+  position: relative;
+}
+
+.inputScreen {
+  min-height: 20px;
+  font-family: digital;
+  font-size: 20px;
+  color: white;
+  text-align: right;
+  vertical-align: text-top;
+  line-height: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.outputScreen {
+  font-size: 30px;
+  font-family: digital;
+  color: white;
+  font-weight: bold;
+  text-align: right;
+  line-height: 35px;
+  height: 7vh;
+}

@@ -9,10 +9,10 @@ const Body = () => {
   const [output, setOutPut] = useState("");
 
   // useRef focuses on an input (main div in this case)
-  const ref = useRef<any>();
+  const ref = useRef<null|HTMLDivElement>(null);
 
   useEffect(() => {
-    ref.current.focus();
+    if (ref.current) ref.current.focus();
   }, []);
   /////
 

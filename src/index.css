@@ -30,18 +30,17 @@ button {
   position: relative;
 }
 
-.inputScreen {
+#display {
   font-size: 40px;
   font-family: digital;
   color: white;
   text-align: right;
   line-height: 35px;
-  height: 7vh;
+  height: 4vh;
   padding: 5px 0;
 }
 
-.outputScreen {
-  padding: 5px 0;
+#output-display {
   min-height: 3vh;
   font-family: digital;
   font-size: 20px;

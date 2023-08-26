@@ -3,8 +3,8 @@ import { ScreenProps } from "../types/types";
 const Screens = ({ input, output }: ScreenProps) => {
   return (
     <>
-      <div className="inputScreen">{input}</div>  
-      <div className="outputScreen">{output}</div>  
+      <div id="display">{input}</div>  
+      <div id="output-display">{output}</div>  
     </>
   )
 }

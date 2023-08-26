@@ -5,7 +5,7 @@ import { numberKeys, operationKeys } from "../utils/constants";
 import { calculate } from "../utils/callbacks";
 
 const Body = () => {
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState<string>("0");
   const [output, setOutPut] = useState<string>("");
   const [openCount, setOpenCount] = useState<number>(0);
 
@@ -19,62 +19,85 @@ const Body = () => {
 
   const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
     const key = event.currentTarget.value;
-    if (key === "ac") {
-      setInput("");
+    let newInput = input;
+    const lastKey = newInput[newInput.length-1];
+    
+    if (key === '.') {
+      if (newInput === '0') return setInput(newInput + key);
+      if (operationKeys.has(lastKey)) return setInput(newInput + "0.");
+    }
+
+    if (newInput === '0') newInput = '';
+
+    if (key === "clear") {
+      setInput("0");
       setOutPut("");
       return;
     }
-    if (key === "=") return calculate(input, setOutPut);
-    if (key === "backspace") return setInput(input.slice(0, input.length - 1));
+    if (key === "=") return calculate(newInput, setOutPut);
+    if (key === "backspace") return setInput(newInput.slice(0, newInput.length - 1));
     if (operationKeys.has(key)) {
       switch (key) {
         case "×":
-          return setInput(input + "*");
+          return setInput(newInput + "*");
         case "÷":
-          return setInput(input + "/");
+          return setInput(newInput + "/");
         default:
-          return setInput(input + key);
+          return setInput(newInput + key);
       }
     }
     if (key === "%") {
-      const compute = calculate(input + "/100", setOutPut);
+      const compute = calculate(newInput + "/100", setOutPut);
       return setInput(compute);
     }
     
     // Configure "()" key
     if (key === "()") {
-      const lastKey = input[input.length-1];
       if (lastKey === '%') return;
-
       if (openCount >= 1 && (numberKeys.has(lastKey) || lastKey === ')')) {
         setOpenCount(openCount - 1);
-        setInput(input + ')');
+        setInput(newInput + ')');
         return
       }
-
       setOpenCount(openCount + 1);
-      setInput(input + '(');
+      setInput(newInput + '(');
       return
     }
 
-    return setInput(input + key);
+    return setInput(newInput + key);
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
     const key = event.key;
-    if (numberKeys.has(key)) return setInput(input + key);
-    if (key === "Backspace") return setInput(input.slice(0, input.length - 1));
-    if (key === "Enter") return calculate(input, setOutPut);
+    let newInput = input;
+    const lastKey = newInput[newInput.length-1];
+
+    if (key === '.') {
+      if (newInput === '0') return setInput(newInput + key);
+      if (operationKeys.has(lastKey)) return setInput(newInput + "0.");
+    }
+    if (newInput === '0') newInput = '';
+
+    if (key === "Backspace") return setInput(newInput.slice(0, newInput.length - 1));
+    if (key === "Enter") {
+      // setInput(newInput);
+      return calculate(newInput, setOutPut);
+      // console.log(newInput)
+      // console.log(output)
+      // return
+    }
+    if (numberKeys.has(key)) return setInput(newInput + key);
     if (operationKeys.has(key)) {
       switch (key) {
         case "×":
-          return setInput(input + "*");
+          return setInput(newInput + "*");
         case "÷":
-          return setInput(input + "/");
+          return setInput(newInput + "/");
         default:
-          return setInput(input + key);
+          return setInput(newInput + key);
       }
     }
+  
   };
 
 

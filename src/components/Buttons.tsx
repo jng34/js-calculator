@@ -3,7 +3,7 @@ import { ButtonProps } from "../types/types"
 const Buttons = ({ handleButtonClick }: ButtonProps) => {
   return (
     <div tabIndex={0}>
-      <button id="allClear" value={"ac"} onClick={(e) => handleButtonClick(e)}>AC</button>
+      <button id="clear" value={"clear"} onClick={(e) => handleButtonClick(e)}>AC</button>
       <button id="parentheses" value={"()"} onClick={(e) => handleButtonClick(e)}>()</button>
       <button id="percentage" value={"%"} onClick={(e) => handleButtonClick(e)}>%</button>
       <button id="divide" value={"÷"} onClick={(e) => handleButtonClick(e)}>÷</button>

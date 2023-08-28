@@ -34,7 +34,7 @@ button {
   position: relative;
 }
 
-#output-display {
+#output-display, #invalid-output {
   font-size: 40px;
   font-family: digital;
   color: white;
@@ -44,7 +44,11 @@ button {
   padding: 5px 0 10px 0;
 }
 
-#display {
+#invalid-output{
+  color: red;
+}
+
+#display, #invalid-input {
   min-height: 3vh;
   font-family: digital;
   font-size: 22px;
@@ -54,6 +58,10 @@ button {
   line-height: 25px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+#invalid-input {
+  color: red;
 }
 
 #one, #two, #three, #four, #five, #six, #seven, #eight, #nine, #zero {

@@ -1,10 +1,10 @@
 import { ScreenProps } from "../types/types";
 
-const Screens = ({ input, output }: ScreenProps) => {
+const Screens = ({ input, output, invalid }: ScreenProps) => {
   return (
     <>
-      <div id="display">{input}</div>  
-      <div id="output-display">{output}</div>  
+      <div id={invalid ? "invalid-input" : "display"}>{input}</div>  
+      <div id={invalid ? "invalid-output" : "output-display"}>{output}</div>  
     </>
   )
 }

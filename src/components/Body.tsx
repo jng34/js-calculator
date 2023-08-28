@@ -1,8 +1,8 @@
 import { useState, MouseEvent, KeyboardEvent, useEffect, useRef } from "react";
-import Buttons from "./Buttons";
-import Screens from "./Screens";
 import { numberKeys, operationKeys } from "../utils/constants";
 import { calculate } from "../utils/callbacks";
+import Buttons from "./Buttons";
+import Screens from "./Screens";
 
 const Body = () => {
   const [input, setInput] = useState<string>("0");
@@ -66,7 +66,6 @@ const Body = () => {
 
   const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
     const key = event.key;
-    console.log(key)
     let newInput = input;
     const lastKey = newInput[newInput.length-1];
 
@@ -74,12 +73,10 @@ const Body = () => {
       if (newInput === '0') return setInput(newInput + key);
       if (operationKeys.has(lastKey)) return setInput(newInput + "0.");
     }
+
     if (newInput === '0') newInput = '';
 
-    if (numberKeys.has(key)) { 
-      console.log(newInput + key)
-      return setInput(newInput + key);
-    }
+    if (numberKeys.has(key)) return setInput(newInput + key);
     if (operationKeys.has(key)) {
       switch (key) {
         case "×":
@@ -90,6 +87,7 @@ const Body = () => {
           return setInput(newInput + key);
       }
     }
+
     if (key === "(") {
       if (lastKey === '%') return;
       if (openCount >= 1 && (numberKeys.has(lastKey) || lastKey === ')')) {
@@ -101,6 +99,7 @@ const Body = () => {
       setInput(newInput + '(');
       return
     }
+
     if (key === "Backspace") return setInput(newInput.slice(0, newInput.length - 1));
     if (key === "Enter") return calculate(newInput, setOutPut);
   };
@@ -118,5 +117,6 @@ const Body = () => {
     </div>
   );
 };
+
 
 export default Body;

@@ -6,12 +6,3 @@ export interface ScreenProps {
 export interface ButtonProps {
   handleButtonClick: (arg: any) => void;
 }
-
-export type Operations = {
-  "+": string;
-  "-": string;
-  "*": string;
-  "/": string;
-  "%": string;
-}
-

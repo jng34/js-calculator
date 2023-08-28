@@ -27,31 +27,31 @@ button {
 }
 
 .calculator {
-  border: 2px grey #47476b;
+  border: 5px solid gray;
   padding: 5px;
   background: black;
   width: 320px;
   position: relative;
 }
 
-#display {
+#output-display {
   font-size: 40px;
   font-family: digital;
   color: white;
   text-align: right;
   line-height: 35px;
   height: 4vh;
-  padding: 5px 0;
+  padding: 5px 0 10px 0;
 }
 
-#output-display {
+#display {
   min-height: 3vh;
   font-family: digital;
-  font-size: 20px;
+  font-size: 22px;
   color: white;
   text-align: right;
   vertical-align: text-top;
-  line-height: 20px;
+  line-height: 25px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }

@@ -6,12 +6,12 @@ const Buttons = ({ handleButtonClick }: ButtonProps) => {
       <button id="clear" value={"clear"} onClick={(e) => handleButtonClick(e)}>AC</button>
       <button id="parentheses" value={"()"} onClick={(e) => handleButtonClick(e)}>()</button>
       <button id="percentage" value={"%"} onClick={(e) => handleButtonClick(e)}>%</button>
-      <button id="divide" value={"÷"} onClick={(e) => handleButtonClick(e)}>÷</button>
+      <button id="divide" value={"/"} onClick={(e) => handleButtonClick(e)}>÷</button>
 
       <button id="seven" value={7} onClick={(e) => handleButtonClick(e)}>7</button>
       <button id="eight" value={8} onClick={(e) => handleButtonClick(e)}>8</button>
       <button id="nine" value={9} onClick={(e) => handleButtonClick(e)}>9</button>
-      <button id="multiply" value={"×"} onClick={(e) => handleButtonClick(e)}>x</button>
+      <button id="multiply" value={"*"} onClick={(e) => handleButtonClick(e)}>x</button>
 
       <button id="four" value={4} onClick={(e) => handleButtonClick(e)}>4</button>
       <button id="five" value={5} onClick={(e) => handleButtonClick(e)}>5</button>
@@ -26,7 +26,7 @@ const Buttons = ({ handleButtonClick }: ButtonProps) => {
       <button id="zero" value={0} onClick={(e) => handleButtonClick(e)}>0</button>
       <button id="decimal" value={"."} onClick={(e) => handleButtonClick(e)}>.</button>
       <button id="backspace" value={"backspace"} onClick={(e) => handleButtonClick(e)}>DEL</button>
-      <button id="equals" value={"="} onClick={(e) => handleButtonClick(e)}>=</button>
+      <button id="equals" value={"equals"} onClick={(e) => handleButtonClick(e)}>=</button>
     </div>
   )
 }

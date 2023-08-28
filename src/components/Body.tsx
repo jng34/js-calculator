@@ -14,7 +14,7 @@ const Body = () => {
 
   useEffect(() => {
     if (ref.current) ref.current.focus();
-  }, []);
+  }, [output]);
   /////
 
   const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -34,17 +34,15 @@ const Body = () => {
       setOutPut("");
       return;
     }
-    if (key === "=") return calculate(newInput, setOutPut);
+    if (key === "equals") return calculate(newInput, setOutPut);
     if (key === "backspace") return setInput(newInput.slice(0, newInput.length - 1));
-    if (operationKeys.has(key)) {
-      switch (key) {
-        case "×":
-          return setInput(newInput + "*");
-        case "÷":
-          return setInput(newInput + "/");
-        default:
-          return setInput(newInput + key);
+    if (operationKeys.has(lastKey) && operationKeys.has(key)) {
+      if (lastKey === '-' && key === '-') {
+        return setInput(newInput + key);
+      } else {
+        return setInput(newInput.slice(0, newInput.length-1) + key);
       }
+      
     }
     if (key === "%") {
       const compute = calculate(newInput + "/100", setOutPut);
@@ -78,15 +76,10 @@ const Body = () => {
     }
     if (newInput === '0') newInput = '';
 
-    if (key === "Backspace") return setInput(newInput.slice(0, newInput.length - 1));
-    if (key === "Enter") {
-      // setInput(newInput);
-      return calculate(newInput, setOutPut);
-      // console.log(newInput)
-      // console.log(output)
-      // return
+    if (numberKeys.has(key)) { 
+      console.log(newInput + key)
+      return setInput(newInput + key);
     }
-    if (numberKeys.has(key)) return setInput(newInput + key);
     if (operationKeys.has(key)) {
       switch (key) {
         case "×":
@@ -97,7 +90,8 @@ const Body = () => {
           return setInput(newInput + key);
       }
     }
-  
+    if (key === "Backspace") return setInput(newInput.slice(0, newInput.length - 1));
+    if (key === "Enter") return calculate(newInput, setOutPut);
   };
 
 

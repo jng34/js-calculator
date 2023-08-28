@@ -11,11 +11,10 @@ const Body = () => {
 
   // useRef focuses on an input (main div in this case)
   const ref = useRef<null|HTMLDivElement>(null);
-
   useEffect(() => {
     if (ref.current) ref.current.focus();
   }, [output]);
-  /////
+
 
   const handleButtonClick = (event: MouseEvent<HTMLButtonElement>) => {
     const key = event.currentTarget.value;
@@ -67,6 +66,7 @@ const Body = () => {
 
   const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
     const key = event.key;
+    console.log(key)
     let newInput = input;
     const lastKey = newInput[newInput.length-1];
 
@@ -89,6 +89,17 @@ const Body = () => {
         default:
           return setInput(newInput + key);
       }
+    }
+    if (key === "(") {
+      if (lastKey === '%') return;
+      if (openCount >= 1 && (numberKeys.has(lastKey) || lastKey === ')')) {
+        setOpenCount(openCount - 1);
+        setInput(newInput + ')');
+        return
+      }
+      setOpenCount(openCount + 1);
+      setInput(newInput + '(');
+      return
     }
     if (key === "Backspace") return setInput(newInput.slice(0, newInput.length - 1));
     if (key === "Enter") return calculate(newInput, setOutPut);

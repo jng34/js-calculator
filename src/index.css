@@ -4,7 +4,7 @@ button {
   width: 80px;
   color: white;
   outline: 1px solid black;
-  /* border: none; */
+  border-radius: 5%;
   background: #4d4d4d;
   font-family: Share Tech Mono, monospace;
   font-size: 25px;
@@ -20,6 +20,10 @@ button {
 
 #equals {
   background-color: rgb(59, 121, 255);
+}
+
+#clear {
+  background-color: rgba(207, 4, 4, 0.753);
 }
 
 .calculator {
@@ -50,4 +54,8 @@ button {
   line-height: 20px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine, #zero {
+  background-color: #696363;
 }
